@@ -14,9 +14,7 @@ class ActivityStore {
             let response = await fetch(`${SERVER}/activity-api/activities`)
             let data = await response.json();
             this.activities = data;
-            
             this.emitter.emit('GET_ACTIVITIES_SUCCESS');
-
 
         } catch (err) {
             console.warn(err);
@@ -72,7 +70,6 @@ class ActivityStore {
             this.emitter.emit('UPDATE_ACTIVITY_ERROR')
         }
     }
-
 
     async updateEmoji(activityID,activity) {
         try {

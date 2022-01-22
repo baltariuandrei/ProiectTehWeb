@@ -8,20 +8,17 @@ class ProfessorStore {
         this.activities = [];
         this.professorsDB = [];
         this.professor = null;
-
         this.emitter = new EventEmitter();
     }
 
-    async getProfessors() {
+    async getProfessors() 
+    {
         try {
             let response = await fetch(`${SERVER}/professor-api/professors`)
             let data = await response.json();
-            
             data.forEach(prof => {
                 this.professorsDB.push({id: prof.id, usernameDB: prof.username, passwordDB: prof.pass});
             });
-
-
             this.emitter.emit('GET_PROFESSORS_SUCCESS');
         } catch (err) {
             console.log("eroare")
@@ -30,7 +27,8 @@ class ProfessorStore {
         }
     }
     
-     async getProfessorById(professorID) {
+     async getProfessorById(professorID) 
+     {
         try {
             let response = await fetch(`${SERVER}/professor-api/professors/${professorID}`)
             let data = await response.json();
@@ -41,12 +39,10 @@ class ProfessorStore {
             console.warn(err);
             this.emitter.emit('GET_PROFESSOR_ERROR');
         }
-
-
     }
     
-
-    async addOne(activity, professorID) {
+    async addOne(activity, professorID) 
+    {
         try {
             await fetch(`${SERVER}/professor-api/professors/${professorID}/activities/add `, {
                 method: 'post',
@@ -62,15 +58,13 @@ class ProfessorStore {
         }
     }
 
-
-    async getAllActivities(professorID) {
+    async getAllActivities(professorID) 
+    {
         try {
             let response = await fetch(`${SERVER}/professor-api/professors/${professorID}/activities`)
             let data = await response.json();
             this.activities = data;
-
             this.emitter.emit('GET_PROFESSOR_ACTIVITIES_SUCCESS');
-
 
         } catch (err) {
             console.warn(err);

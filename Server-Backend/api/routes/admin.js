@@ -11,6 +11,5 @@ module.exports = (connection) => {
             res.status(500).json({message : ':('})
         }
     })
-    
     return router
 }

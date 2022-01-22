@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import '../Style/formAddActivity.css';
 import '../Style/style.css';
 
-
 const AddActivityForm = (props) => (
     <form className={props.showForm ? "shown" : "hidden"} onSubmit={props.handleSubmit}>
         <label><br/>

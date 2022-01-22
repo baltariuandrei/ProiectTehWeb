@@ -35,9 +35,7 @@ class Professor extends Component {
             professor: null,
             nameProf: '',
             specialty: ''
-
         };
-
         this.state.professorID = this.props.match.params.id;
     }
     
@@ -51,10 +49,12 @@ class Professor extends Component {
         })
         
         console.log("ProfessorPage check id for sending to feedback page check: " + check)
-        if (!check) {
-            console.log("Feedback not avalaible for this activity")
-            alert("Feedback-ul pentru aceasta activitate este indisponibil!!")
-        } else {
+        if (!check) 
+        {
+            console.log("Feedback-ul pentru aceasta activitate este indisponibil!")
+            alert("Feedback-ul pentru aceasta activitate este indisponibil!")
+        } else 
+        {
          this.props.history.push('/feedbackforactivity/' + this.state.idActivityFeedback)
         }
     }
@@ -85,9 +85,7 @@ class Professor extends Component {
 
 
     componentDidMount() {
-
         this.store.getProfessors()
-
         this.store.emitter.addListener('GET_PROFESSORS_SUCCESS', () => {
             this.setState({
                 professor: this.store.professors
@@ -102,20 +100,18 @@ class Professor extends Component {
             })
         });
         
-        
         this.store.getProfessorById(this.state.professorID);
-
         this.store.emitter.addListener('GET_PROFESSOR_SUCCESS',()=>{
             this.setState({
                 professor:this.store.professor,
                 nameProf:this.store.professor.nameProf,
                 specialty:this.store.professor.specialty
-
             })
         });
     }
 
-    render() {
+    render() 
+    {
         return (
             <div>
                 <Header nameProf={this.state.nameProf} specialty={this.state.specialty}/>
@@ -126,7 +122,6 @@ class Professor extends Component {
                         placeholder="Activity ID" onChange={this.handleChange}/>
                     <input type="button" className="btnSeeFeedback" value="Vezi feedback"
                         onClick={this.handleClick}/>
-                
                 </div>
                 <input type="button" className="btnAddActivity" value="Adauga activitate"
                        onClick={this.handleShowForm}/>
@@ -135,11 +130,8 @@ class Professor extends Component {
                     handleSubmit={(event) => this.handleSubmit(event)}
                     showForm={this.state.showForm}
                 />
-
             </div>
         )
-
-
     }
 }
 

@@ -9,17 +9,14 @@ module.exports = function(sequelize, DataTypes) {
                 len : [3, 45]
             }
         },
-        
         start_date : {
             type : DataTypes.DATE,
             allowNull : false
         },
-        
         end_date : {
             type : DataTypes.DATE,
             allowNull : false
         },
-        
         count_emoji1 : {
             type : DataTypes.INTEGER,
             allowNull : false,
@@ -28,7 +25,6 @@ module.exports = function(sequelize, DataTypes) {
                 min : 0
             }
         },
-        
         count_emoji2 : {
             type : DataTypes.INTEGER,
             allowNull : false,
@@ -37,7 +33,6 @@ module.exports = function(sequelize, DataTypes) {
                 min : 0
             }
         },
-        
         count_emoji3 : {
             type : DataTypes.INTEGER,
             allowNull : false,
@@ -45,8 +40,7 @@ module.exports = function(sequelize, DataTypes) {
                 isInt : true,
                 min : 0
             }
-        },
-        
+        },   
         count_emoji4 : {
             type : DataTypes.INTEGER,
             allowNull : false,
@@ -58,6 +52,5 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     timestamps : false
 });
-    
     return Activity;
 }

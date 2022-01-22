@@ -7,7 +7,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
-
 const ActivityListStud = (props) => (
     <TableContainer component={Paper}>
         <Table style={{minWidth: "500px"}} aria-label="simple table">

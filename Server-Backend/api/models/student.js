@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
                len : [3, 45]
            }
        },
-       
        username : {
            type : DataTypes.STRING,
            allowNull : false,
@@ -15,7 +14,6 @@ module.exports = function(sequelize, DataTypes) {
                len : [3, 15]
            }
        },
-       
        pass : {
            type : DataTypes.STRING,
            allowNull : false,
@@ -26,7 +24,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     timestamps : false
 });
-    
     return Student;
 }
 

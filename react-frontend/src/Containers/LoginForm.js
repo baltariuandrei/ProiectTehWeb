@@ -22,8 +22,6 @@ const LoginForm = (props) => (
         <label><br/>
             <input type="button" name="login_stud" className="btnStud" value="Autentificare Student" onClick={props.handleClick}/>
         </label>
-
-
     </form>
 );
 

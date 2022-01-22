@@ -19,15 +19,9 @@ class FeedbackPage extends Component {
         this.store = new FeedbackStore();
         this.storeActivity = new ActivityStore();
         this.storeStudent = new StudentStore();
-
-
-
-
         this.state.studentID = this.props.match.params.stud_id;
         this.state.activityID = this.props.match.params.activity_id;
-
         this.storeStudent.getActivityById(this.state.activityID);
-
         this.storeStudent.emitter.addListener('GET_ACTIVITY_SUCCESS', () => {
             this.setState({
                 activity: this.storeStudent.activity
@@ -37,7 +31,8 @@ class FeedbackPage extends Component {
         this.onClickImage = (e) => {
             this.setState({showText: true, text: e.target.alt});
             let tempDate = new Date();
-            if (e.target.name === "smiley_face") {
+            if (e.target.name === "smiley_face") 
+            {
                 let time_stamp = tempDate.getFullYear()
                     + '-' + (tempDate.getMonth() + 1)
                     + '-' + tempDate.getDate()
@@ -45,9 +40,7 @@ class FeedbackPage extends Component {
                     + ':' + tempDate.getMinutes()
                     + ':' + tempDate.getSeconds()
                     + ' timeZone:' + Intl.DateTimeFormat().resolvedOptions().timeZone
-                    
                     console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
-                
                 const feedback = {
                     time_stamp: time_stamp,
                     id_activity: this.state.activityID,
@@ -59,7 +52,8 @@ class FeedbackPage extends Component {
                 console.log("This should be the current activity ID: " + this.state.activityID)
                 this.storeActivity.updateCountEmoji1(this.state.activityID)
                 
-            } else if (e.target.name === "frowny_face") {
+            } else if (e.target.name === "frowny_face") 
+            {
                 let time_stamp = tempDate.getFullYear()
                     + '-' + (tempDate.getMonth() + 1)
                     + '-' + tempDate.getDate()
@@ -78,10 +72,9 @@ class FeedbackPage extends Component {
                 console.log("clicked frowny_face -> should update count for emoji2")
                 console.log("This should be the current activity ID: " + this.state.activityID)
                 this.storeActivity.updateCountEmoji2(this.state.activityID)
-                
-                /*this.state.activity.count_emoji2++;
-                this.storeActivity.updateEmoji(this.state.activityID, this.state.activity);*/
-            } else if (e.target.name === "surprised_face") {
+
+            } else if (e.target.name === "surprised_face") 
+            {
                 let time_stamp = tempDate.getFullYear()
                     + '-' + (tempDate.getMonth() + 1)
                     + '-' + tempDate.getDate()
@@ -96,12 +89,12 @@ class FeedbackPage extends Component {
                     studentId: this.state.studentID
                 };
                 this.store.addFeedback(feedback);
-                
-                console.log("clicked surprised_face -> should update count for emoji3")
-                console.log("This should be the current activity ID: " + this.state.activityID)
+                console.log("clicked emoji3")
+                console.log("This should be activity number: " + this.state.activityID)
                 this.storeActivity.updateCountEmoji3(this.state.activityID)
                 
-            } else if (e.target.name === "confused_face") {
+            } else if (e.target.name === "confused_face") 
+            {
                 let time_stamp = tempDate.getFullYear()
                     + '-' + (tempDate.getMonth() + 1)
                     + '-' + tempDate.getDate()
@@ -120,8 +113,6 @@ class FeedbackPage extends Component {
                 console.log("clicked confused_face -> should update count for emoji4")
                 console.log("This should be the current activity ID: " + this.state.activityID)
                 this.storeActivity.updateCountEmoji4(this.state.activityID)
-                
-             
             }
 
         };
@@ -134,9 +125,8 @@ class FeedbackPage extends Component {
         }
     }
 
-
-
-    render() {
+    render() 
+    {
         const styleIcon = {
             width: '200px',
             height: '200px'
@@ -145,7 +135,7 @@ class FeedbackPage extends Component {
         return (
             <div>
                 <HeaderFeedback/>
-                <h1 align="center">Alege un feedback </h1>
+                <h1 align="center">Alege o reactie</h1>
                 <div id="images" align="center">
                     <img
                         src="https://www.clipartkey.com/mpngs/m/296-2968748_wow-emoji-png-smiley-face-with-thumb-up.png"
@@ -155,7 +145,6 @@ class FeedbackPage extends Component {
                         src="https://i.pinimg.com/564x/4f/74/ad/4f74ad082bce5e05d8df56e28470342f.jpg"
                         name="frowny_face"
                         alt="frowny face" onClick={this.onClickImage} style={styleIcon}/>
-
                 </div>
                 <div id="images" align="center">
                     <img src="https://clipartcraft.com/images/surprised-emoji-clipart-5.png"
@@ -169,7 +158,6 @@ class FeedbackPage extends Component {
             </div>
         );
     }
-
 }
 
 export default FeedbackPage;

@@ -35,46 +35,45 @@ class Login extends Component {
                     if (prof.usernameDB === this.state.username && prof.passwordDB === this.state.password) {
                         ok = 0;
                         this.state.professorID = prof.id
-                        // this.setState({professorID:prof.id})
                     }
                 });
 
-                if (ok === 0) {
+                if (ok === 0) 
+                {
                     this.state.OK_Professor = true
-                    // this.setState({OK_Professor:true})
-
                 }
 
-                if (this.state.OK_Professor===true) {
+                if (this.state.OK_Professor===true) 
+                {
                     this.props.history.push('/professor/' + this.state.professorID)
-                } else {
-                    alert("Datele de logare pentru profesor au fost introduse gresit!")
+                } else 
+                {
+                    alert("Datele de autentificare pentru profesor sunt gresite!")
                 }
-            } else if (evt.target.name === "login_stud") {
-
-                let ok_s = 1;
-                
-                
+            } else if (evt.target.name === "login_stud") 
+            {
+                let ok_s = 1;                
                 console.log("this.state.studentsDB : " + this.state.studentsDB)
                 this.state.studentsDB.forEach(stud => {
                     console.log(stud + " afisare stud")
-                    if (stud.usernameStudDB === this.state.username && stud.passwordStudDB === this.state.password) {
+                    if (stud.usernameStudDB === this.state.username && stud.passwordStudDB === this.state.password) 
+                    {
                         ok_s = 0;
                         this.state.studentID = stud.id
-                        // this.setState({studentID:stud.id})
                     }
                 });
-                if (ok_s === 0) {
+                if (ok_s === 0) 
+                {
                     this.state.OK_Student = true;
-                    // this.setState({OK_Student:true})
                 }
-                
                 console.log("user input: " + this.state.username + " ----- " + this.state.password)
 
-                if (this.state.OK_Student) {
+                if (this.state.OK_Student) 
+                {
                     this.props.history.push('/student/' + this.state.studentID)
-                } else {
-                    alert("Datele de logare pentru student au fost introduse gresit!")
+                } else 
+                {
+                    alert("Datele de autentificare pentru student sunt gresite!")
                 }
             }
 

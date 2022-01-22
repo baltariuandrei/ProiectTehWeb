@@ -3,10 +3,9 @@ import AppNavigation from "../Navigation/Routes";
 
 class App extends Component {
 
-    componentWillUnmount() {
-    }
-
-    render() {
+    componentWillUnmount() {}
+    render() 
+    {
         return (
             <div>
                 <AppNavigation/>

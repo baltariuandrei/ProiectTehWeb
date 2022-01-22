@@ -13,7 +13,8 @@ class FeedbackStore {
         this.confusedCount = 0;
     }
 
-    async getFeedbacks() {
+    async getFeedbacks() 
+    {
         try {
             let response = await fetch(`${SERVER}/feedback-api/feedbacks`)
             let data = await response.json();
@@ -21,40 +22,38 @@ class FeedbackStore {
             data.forEach(feedback => {
                 this.feedbacks.push({id_activity: feedback.id_activity, emoji: feedback.emoji});
             });
-
-
             this.emitter.emit('GET_FEEDBACK_SUCCESS');
+
         } catch (err) {
             console.warn(err);
             this.emitter.emit('GET_FEEDBACK_ERROR');
         }
     }
     
-    async getSpecificFeedbackForActivity(idActivity) {
+    async getSpecificFeedbackForActivity(idActivity) 
+    {
         try {
             let response = await fetch(`${SERVER}/feedback-api/feedbacks/${idActivity}`)
             let data = await response.json();
-            
             this.specificFeedbacksActivity = data
-
             this.specificFeedbacksActivity.forEach(fdb => {
-            if (fdb.emoji.includes("smiley")) {
+            if (fdb.emoji.includes("smiley")) 
+            {
                 ++this.smileyCount
             }
-            
-            if (fdb.emoji.includes("frowny")) {
+            if (fdb.emoji.includes("frowny")) 
+            {
                 ++this.frownyCount
             }
-            
-            if (fdb.emoji.includes("surprised")) {
+            if (fdb.emoji.includes("surprised")) 
+            {
                 ++this.surprisedCount
             }
-            
-            if (fdb.emoji.includes("confused")) {
+            if (fdb.emoji.includes("confused")) 
+            {
                 ++this.confusedCount
             }
         })
-            
             this.emitter.emit('GET_SPECIFIC_FEEDBACK_SUCCES')
         } catch (err) {
             console.warn(err);

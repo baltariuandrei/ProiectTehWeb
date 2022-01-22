@@ -6,7 +6,6 @@ export function formatDate(date) {
         minutes = '' + d.getMinutes(),
         year = d.getFullYear();
 
-
     if (month.length < 2)
         month = '0' + month;
     if (day.length < 2)

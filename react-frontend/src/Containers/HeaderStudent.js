@@ -10,11 +10,8 @@ const HeaderStudent = (props) => (
             <Typography variant="h6" className="">
                 Student: {props.nameStud}
             </Typography>
-
         </Toolbar>
-
     </AppBar>
-
 );
 
 export default HeaderStudent;

@@ -3,7 +3,6 @@ const router = express.Router()
 const Sequelize = require('sequelize')
 const models = require('../models')
 
-// Handle get request to /feedbacks => response: a json array with all the feedbacks from the database
 router.get('/feedbacks', async(req, res, next) => {
     try {
         let feedbacks = await models.Feedback.findAll();
@@ -13,7 +12,6 @@ router.get('/feedbacks', async(req, res, next) => {
     }
 })
 
-// Handle post request to /feedbacks/add => add a new feedback to the db
 router.post('/feedbacks/add', async(req, res, next) => {
     try {
         await models.Feedback.create(req.body);
@@ -26,7 +24,6 @@ router.post('/feedbacks/add', async(req, res, next) => {
     }
 })
 
-// Handle get request to /feedbacks/:aid => response: json array with feedback for a specific activity
 router.get('/feedbacks/:aid', async(req, res, next) => {
     try {
         let feedbacks = await models.Feedback.findAll()

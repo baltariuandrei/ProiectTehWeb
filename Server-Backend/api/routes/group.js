@@ -3,7 +3,6 @@ const router = express.Router()
 const Sequelize = require('sequelize')
 const models = require('../models')
 
-// Handle get request to /groups => response: a json array with all the groups
 router.get('/groups', async(req, res, next) => {
    try {
        let groups = await models.Group.findAll();
@@ -14,7 +13,6 @@ router.get('/groups', async(req, res, next) => {
    }
 });
 
-// Handle post request to /groups/add => using a json body add a group to the db
 router.post('/groups/add', async(req, res, next) => {
     try {
         let group = await models.Group.create(req.body);
@@ -27,7 +25,6 @@ router.post('/groups/add', async(req, res, next) => {
     }
 });
 
-// Handle get request to /group-api/groups/:gid/students => response: a json array with all the students that that are in a specific group
 router.get('/groups/:gid/students', async(req, res, next) => {
    try {
        let group = await models.Group.findByPk(req.params.gid, {
@@ -47,7 +44,6 @@ router.get('/groups/:gid/students', async(req, res, next) => {
    }
 });
 
-// Handle post request to /group-api/groups/:gid/student/add => create a student and bond it with a group (group identified by id)
 router.post('/groups/:gid/student/add', async(req, res, next) => {
    try {
        let group = await models.Group.findByPk(req.params.gid);

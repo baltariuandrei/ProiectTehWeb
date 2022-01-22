@@ -6,9 +6,9 @@ import HeaderFeedbackForActivity from "../Containers/HeaderFeedbackForActivity";
 import '../Style/labels.css';
 
 class FeedbackForActivityPage extends Component {
-    constructor(props) {
+    constructor(props) 
+    {
         super(props);
-        
         this.state = {
             idActivityFeedback: 0,
             specificFeedbacksActivity: [],
@@ -22,7 +22,8 @@ class FeedbackForActivityPage extends Component {
         this.state.idActivityFeedback = this.props.match.params.activity_id;
     }
     
-    componentDidMount() {
+    componentDidMount() 
+    {
         this.storeFeedback.getSpecificFeedbackForActivity(this.state.idActivityFeedback)
         this.storeFeedback.emitter.addListener('GET_SPECIFIC_FEEDBACK_SUCCES', () => {
             this.setState({
@@ -34,12 +35,11 @@ class FeedbackForActivityPage extends Component {
             })
         });
     }
-    
-     render() {
+     render() 
+     {
         return (
             <div>
                 <HeaderFeedbackForActivity idActivityFeedback={this.state.idActivityFeedback}/>
-
                   <ul className='legend-labels'>
                     <li><span className="surprised_face"></span>Surprins</li>
                     <li><span className="confused_face"></span>Confuz</li>
@@ -52,34 +52,28 @@ class FeedbackForActivityPage extends Component {
                             { title: 'Confuz', value: this.state.confusedCount, color: '#FFD700' },
                             { title: 'Fericit', value: this.state.smileyCount, color: '#00FF7F' },
                             { title: 'Trist', value: this.state.frownyCount, color: '#6A5ACD' },
-                            
                             ]}
                             label
                             labelPosition={50}
                             labelStyle={{
                                 fill: '#121212',
-                                fontFamily: 'sans-serif',
-                                fontSize: '25px'
+                                fontFamily: 'comic-sans',
+                                fontSize: '26px'
                               }}
                                 
                           style={{
                             height: '450px',
                             padding: '10px'
                           }}
-                          
                           viewBoxSize={[
                             450,
                             450
                           ]}
                     />
-                        
                         <FeedbackList  specificFeedbacksActivity={this.state.specificFeedbacksActivity}/>
             </div>        
             )
-         
      }
-    
-    
 }
 
 export default FeedbackForActivityPage;

@@ -11,7 +11,8 @@ class StudentStore {
         this.student = null;
     }
 
-    async getActivityById(activityID) {
+    async getActivityById(activityID) 
+    {
         try {
             let response = await fetch(`${SERVER}/activity-api/activities/${activityID}`)
             let data = await response.json();
@@ -22,12 +23,10 @@ class StudentStore {
             console.warn(err);
             this.emitter.emit('GET_ACTIVITY_ERROR');
         }
-
-
     }
     
-    
-    async getStudentById(studentID) {
+    async getStudentById(studentID) 
+    {
         try {
             let response = await fetch(`${SERVER}/student-api/students/${studentID}`)
             let data = await response.json();
@@ -38,19 +37,16 @@ class StudentStore {
             console.warn(err);
             this.emitter.emit('GET_STUDENT_ERROR');
         }
-
-
     }
 
-    async getStudents() {
+    async getStudents() 
+    {
         try {
             let response = await fetch(`${SERVER}/student-api/students`);
             let data = await response.json();
-
             data.forEach(stud => {
                 this.studentsDB.push({id: stud.id, usernameStudDB: stud.username, passwordStudDB: stud.pass});
             });
-
             this.emitter.emit('GET_STUDENTS_SUCCESS');
         } catch (err) {
             console.warn(err);

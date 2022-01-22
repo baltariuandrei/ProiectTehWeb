@@ -7,7 +7,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 
-
 const FeedbackList = (props) => (
     <TableContainer component={Paper}>
         <Table style={{minWidth: "650px"}} aria-label="simple table">

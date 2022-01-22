@@ -4,7 +4,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 const HeaderStudent = (props) => (
-
     <AppBar position="static" color="default">
         <Toolbar>
             <Typography variant="h6" className="">

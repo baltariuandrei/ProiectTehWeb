@@ -4,7 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 const HeaderFeedbackForActivity = (props) => (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
         <Toolbar>
             <Typography variant="h6" className="">
                 Feedback-ul pentru activitatea cu id : {props.idActivityFeedback}
